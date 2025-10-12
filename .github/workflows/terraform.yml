@@ -29,6 +29,9 @@ jobs:
         with:
           terraform_version: 1.7.5
 
+      - name: Init
+        run: terraform -chdir=terraform init
+
       - name: Validate
         run: |
           terraform -chdir=terraform fmt -check

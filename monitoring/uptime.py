@@ -3,17 +3,14 @@ import sys
 import time
 import requests
 
-
 URL = os.getenv("MONITOR_URL") or (len(sys.argv) > 1 and sys.argv[1])
 TIMEOUT = float(os.getenv("TIMEOUT", "5"))
 RETRIES = int(os.getenv("RETRIES", "2"))
 SLEEP_BETWEEN = float(os.getenv("SLEEP_BETWEEN", "1.5"))
 
-
 if not URL:
     print("MONITOR_URL not provided. Set env var or pass as first arg.")
-sys.exit(2)
-
+    sys.exit(2)
 
 last_exc = None
 for attempt in range(1, RETRIES + 2):

@@ -42,13 +42,13 @@ jobs:
         if: github.event_name == 'pull_request'
         run: terraform -chdir=terraform plan -input=false
 
-      #- name: Destroy
-      #  if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-      #  run: terraform -chdir=terraform destroy -auto-approve -input=false
-
-      - name: Apply
+      - name: Destroy
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: terraform -chdir=terraform apply -auto-approve -input=false
+        run: terraform -chdir=terraform destroy -auto-approve -input=false
+
+      #- name: Apply
+      #  if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      #  run: terraform -chdir=terraform apply -auto-approve -input=false
 
       - name: Show outputs
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'

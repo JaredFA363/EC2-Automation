@@ -13,7 +13,7 @@ variable "aws_region" {
 }
 
 locals {
-  bucket_name    = "Jared-EC2-Automation-Backend" # must be globally unique
+  bucket_name    = "Jared-EC2-Automation-Backend"
   dynamodb_table = "terraform-locks"
 }
 

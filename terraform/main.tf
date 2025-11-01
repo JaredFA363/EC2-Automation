@@ -1,4 +1,4 @@
-# Use default VPC and a random public subnet
+# default VPC and a random public subnet
 data "aws_vpc" "default" {
   default = true
 }
@@ -10,9 +10,9 @@ data "aws_subnets" "default" {
   }
 }
 
-# Latest Amazon Linux 2023 AMI (x86_64)
+# Amazon Linux 2023 AMI
 data "aws_ami" "al2023" {
-  owners      = ["137112412989"] # Amazon
+  owners      = ["137112412989"]
   most_recent = true
   filter {
     name   = "name"
